@@ -52,10 +52,10 @@ trait CKEditorTrait
 			case 'basic':
 			case 'full':
 			case 'standard':
-				$preset = __DIR__ . '/' . $this->preset . '.php';
+				$preset = __DIR__ . '/presets/' . $this->preset . '.php';
 				break;
 			default:
-				$preset = __DIR__ . '/standard.php';
+				$preset = __DIR__ . '/presets/standard.php';
 		}
 		$options = require($preset);
 		$this->clientOptions = ArrayHelper::merge($options, $this->clientOptions);
