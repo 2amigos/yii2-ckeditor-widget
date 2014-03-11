@@ -1,0 +1,23 @@
+{
+    "name": "2amigos/yii2-ckeditor-widget",
+    "description": "CKEditor widget for Yii2.",
+    "keywords": ["yii", "extension", "widget", "ckeditor"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Antonio Ramirez",
+            "email": "ramirez.cobos@gmail.com",
+            "homepage": "http://2amigos.us"
+        }
+    ],
+    "require" : {
+		"ckeditor/ckeditor": "dev-full/stable",
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "dosamigos\\ckeditor\\": ""
+        }
+    }
+}
