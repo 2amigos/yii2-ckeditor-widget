@@ -52,10 +52,10 @@ trait CKEditorTrait
 			case 'basic':
 			case 'full':
 			case 'standard':
-				$preset = Yii::getAlias('@app/extensions/ckeditor/presets') . '/' . $this->preset . '.php';
+				$preset = __DIR__ . '/' . $this->preset . '.php';
 				break;
 			default:
-				$preset = Yii::getAlias('@app/extensions/ckeditor/presets') . '/standard.php';
+				$preset = __DIR__ . '/standard.php';
 		}
 		$options = require($preset);
 		$this->clientOptions = ArrayHelper::merge($options, $this->clientOptions);
