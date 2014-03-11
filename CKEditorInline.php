@@ -34,6 +34,12 @@ class CKEditorInline extends Widget
 	public $tag = 'div';
 
 	/**
+	 * @var bool disables creating the inline editor automatically for elements with contenteditable attribute
+	 * set to the true. Defaults to true.
+	 */
+	public $disableAutoInline = true;
+
+	/**
 	 * @inheritdoc
 	 */
 	public function init()
@@ -75,7 +81,11 @@ class CKEditorInline extends Widget
 			? Json::encode($this->clientOptions)
 			: '{}';
 
-		$js = "CKEDITOR.disableAutCKEDITOR.inline('$id', $options);";
-		$view->registerJs($js);
+		$js = [];
+		if ($this->disableAutoInline) {
+			$js[] = "CKEDITOR.disableAutoInline = true;";
+		}
+		$js[] = "CKEDITOR.inline('$id', $options);";
+		$view->registerJs(implode("\n", $js));
 	}
 } 
