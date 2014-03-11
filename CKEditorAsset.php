@@ -13,8 +13,8 @@ class CKEditorAsset extends AssetBundle
 	public $sourcePath = '@vendor/ckeditor/ckeditor';
 
 	public $js = [
-		'adapters/jquery.js',
-		'ckeditor.js'
+		'ckeditor.js',
+		'adapters/jquery.js'
 	];
 
 	public $depends = [
