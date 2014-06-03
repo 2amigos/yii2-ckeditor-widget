@@ -59,7 +59,7 @@ class CKEditor extends InputWidget
 			? Json::encode($this->clientOptions)
 			: '{}';
 
-		$js = "CKEDITOR.replace('$id', $options);";
+		$js = "CKEDITOR.replace('$id', $options).on('blur', function(){ this.updateElement(); jQuery(this.element.$).trigger('blur'); });";
 		$view->registerJs($js);
 	}
-} 
+}
