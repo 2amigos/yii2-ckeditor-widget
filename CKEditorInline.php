@@ -86,6 +86,11 @@ class CKEditorInline extends Widget
 			$js[] = "CKEDITOR.disableAutoInline = true;";
 		}
 		$js[] = "CKEDITOR.inline('$id', $options);";
+
+        if(isset($this->clientOptions['filebrowserUploadUrl'])) {
+            $js[] = "dosamigos.ckEditorWidget.registerCsrfImageUploadHandler();";
+        }
+
 		$view->registerJs(implode("\n", $js));
 	}
 } 
