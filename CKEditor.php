@@ -51,7 +51,7 @@ class CKEditor extends InputWidget
 	{
 		$view = $this->getView();
 
-		CKEditorAsset::register($view);
+		CKEditorWidgetAsset::register($view);
 
 		$id = $this->options['id'];
 
@@ -59,7 +59,8 @@ class CKEditor extends InputWidget
 			? Json::encode($this->clientOptions)
 			: '{}';
 
-		$js = "CKEDITOR.replace('$id', $options);";
-		$view->registerJs($js);
+        $js[] = "CKEDITOR.replace('$id', $options);";
+        $js[] = "dosamigos.ckEditorWidget.registerOnChangeHandler('$id');";
+        $view->registerJs(implode("\n", $js));
 	}
 } 
