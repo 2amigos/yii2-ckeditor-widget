@@ -24,7 +24,7 @@ dosamigos.ckEditorWidget = (function ($) {
                     var csrfTokenInput = $('<input/>').attr({'type': 'hidden', 'name': yii.getCsrfParam()}).val(yii.getCsrfToken());
                     $form.append(csrfTokenInput);
                 }
-            })
+            });
         }
     };
     return pub;
