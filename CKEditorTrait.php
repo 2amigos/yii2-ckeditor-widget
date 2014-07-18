@@ -47,7 +47,8 @@ trait CKEditorTrait
 	{
 		switch ($this->preset) {
 			case 'custom':
-				$preset = [];
+				$options = [];
+				$preset = null;
 				break;
 			case 'basic':
 			case 'full':
@@ -57,7 +58,9 @@ trait CKEditorTrait
 			default:
 				$preset = __DIR__ . '/presets/standard.php';
 		}
-		$options = require($preset);
+		if ($preset !== null) {
+			$options = require($preset);
+		}
 		$this->clientOptions = ArrayHelper::merge($options, $this->clientOptions);
 	}
 } 

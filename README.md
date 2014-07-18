@@ -1,6 +1,8 @@
 CKEditor Widget for Yii2
 ========================
 
+[![Latest Stable Version](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/v/stable.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget) [![Total Downloads](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/downloads.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget) [![Latest Unstable Version](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/v/unstable.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget) [![License](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/license.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget)
+
 Renders a [CKEditor WYSIWYG text editor plugin](http://www.ckeditor.com) widget.
 
 Installation
