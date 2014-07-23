@@ -20,8 +20,9 @@ dosamigos.ckEditorWidget = (function ($) {
         registerCsrfImageUploadHandler: function () {
             yii & $(document).off('click', '.cke_dialog_tabs a:eq(2)').on('click', '.cke_dialog_tabs a:eq(2)', function () {
                 var $form = $('.cke_dialog_ui_input_file iframe').contents().find('form');
-                if (!$form.find('input[name=_csrf]').length) {
-                    var csrfTokenInput = $('<input/>').attr({'type': 'hidden', 'name': yii.getCsrfParam()}).val(yii.getCsrfToken());
+                var csrfName = yii.getCsrfParam();
+                if (!$form.find('input[name=' + csrfName + ']').length) {
+                    var csrfTokenInput = $('<input/>').attr({'type': 'hidden', 'name': csrfName}).val(yii.getCsrfToken());
                     $form.append(csrfTokenInput);
                 }
             });
