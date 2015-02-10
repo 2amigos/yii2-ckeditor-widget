@@ -12,8 +12,8 @@
         }
     ],
     "require" : {
-	    "ckeditor/ckeditor": "4.4.0",
-        "yiisoft/yii2": "*"
+	    "ckeditor/ckeditor": "4.4.*",
+            "yiisoft/yii2": "*"
     },
     "autoload": {
         "psr-4": {
