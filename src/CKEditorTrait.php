@@ -6,7 +6,6 @@
  */
 namespace dosamigos\ckeditor;
 
-use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
