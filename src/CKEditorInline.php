@@ -27,12 +27,10 @@ class CKEditorInline extends Widget
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $options = [];
-
     /**
      * @var string
      */
     public $tag = 'div';
-
     /**
      * @var bool disables creating the inline editor automatically for elements with contenteditable attribute
      * set to the true. Defaults to true.
@@ -72,6 +70,8 @@ class CKEditorInline extends Widget
      */
     protected function registerPlugin()
     {
+        $js = [];
+
         $view = $this->getView();
 
         CKEditorAsset::register($view);
@@ -82,7 +82,6 @@ class CKEditorInline extends Widget
             ? Json::encode($this->clientOptions)
             : '{}';
 
-        $js = [];
         if ($this->disableAutoInline) {
             $js[] = "CKEDITOR.disableAutoInline = true;";
         }

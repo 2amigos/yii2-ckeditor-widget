@@ -51,6 +51,7 @@ class CKEditor extends InputWidget
     protected function registerPlugin()
     {
         $js = [];
+
         $view = $this->getView();
 
         CKEditorWidgetAsset::register($view);
