@@ -18,13 +18,13 @@ use yii\web\AssetBundle;
  */
 class CKEditorWidgetAsset extends AssetBundle
 {
-	public $sourcePath = '@vendor/2amigos/yii2-ckeditor-widget/assets';
+    public $sourcePath = '@vendor/2amigos/yii2-ckeditor-widget/assets';
 
-	public $depends = [
-		'dosamigos\ckeditor\CKEditorAsset'
-	];
+    public $depends = [
+        'dosamigos\ckeditor\CKEditorAsset'
+    ];
 
-	public $js = [
-		'js/dosamigos-ckeditor.widget.js'
-	];
+    public $js = [
+        'js/dosamigos-ckeditor.widget.js'
+    ];
 } 

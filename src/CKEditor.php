@@ -20,52 +20,52 @@ use yii\widgets\InputWidget;
  */
 class CKEditor extends InputWidget
 {
-	use CKEditorTrait;
+    use CKEditorTrait;
 
-	/**
-	 * @inheritdoc
-	 */
-	public function init()
-	{
-		parent::init();
-		$this->initOptions();
-	}
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        parent::init();
+        $this->initOptions();
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function run()
-	{
-		if ($this->hasModel()) {
-			echo Html::activeTextarea($this->model, $this->attribute, $this->options);
-		} else {
-			echo Html::textarea($this->name, $this->value, $this->options);
-		}
-		$this->registerPlugin();
-	}
+    /**
+     * @inheritdoc
+     */
+    public function run()
+    {
+        if ($this->hasModel()) {
+            echo Html::activeTextarea($this->model, $this->attribute, $this->options);
+        } else {
+            echo Html::textarea($this->name, $this->value, $this->options);
+        }
+        $this->registerPlugin();
+    }
 
-	/**
-	 * Registers CKEditor plugin
-	 */
-	protected function registerPlugin()
-	{
-		$view = $this->getView();
+    /**
+     * Registers CKEditor plugin
+     */
+    protected function registerPlugin()
+    {
+        $view = $this->getView();
 
-		CKEditorWidgetAsset::register($view);
+        CKEditorWidgetAsset::register($view);
 
-		$id = $this->options['id'];
+        $id = $this->options['id'];
 
-		$options = $this->clientOptions !== false && !empty($this->clientOptions)
-			? Json::encode($this->clientOptions)
-			: '{}';
+        $options = $this->clientOptions !== false && !empty($this->clientOptions)
+            ? Json::encode($this->clientOptions)
+            : '{}';
 
         $js[] = "CKEDITOR.replace('$id', $options);";
         $js[] = "dosamigos.ckEditorWidget.registerOnChangeHandler('$id');";
 
-        if(isset($this->clientOptions['filebrowserUploadUrl'])) {
+        if (isset($this->clientOptions['filebrowserUploadUrl'])) {
             $js[] = "dosamigos.ckEditorWidget.registerCsrfImageUploadHandler();";
         }
 
         $view->registerJs(implode("\n", $js));
-	}
+    }
 } 

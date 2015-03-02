@@ -22,7 +22,10 @@ dosamigos.ckEditorWidget = (function ($) {
                 var $form = $('.cke_dialog_ui_input_file iframe').contents().find('form');
                 var csrfName = yii.getCsrfParam();
                 if (!$form.find('input[name=' + csrfName + ']').length) {
-                    var csrfTokenInput = $('<input/>').attr({'type': 'hidden', 'name': csrfName}).val(yii.getCsrfToken());
+                    var csrfTokenInput = $('<input/>').attr({
+                        'type': 'hidden',
+                        'name': csrfName
+                    }).val(yii.getCsrfToken());
                     $form.append(csrfTokenInput);
                 }
             });
