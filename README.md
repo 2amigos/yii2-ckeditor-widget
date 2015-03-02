@@ -1,7 +1,7 @@
 CKEditor Widget for Yii2
 ========================
 
-[![Latest Version](https://img.shields.io/github/release/yii2-ckeditor-widget.svg?style=flat-square)](https://github.com/2amigos/yii2-semantic-ui/releases)
+[![Latest Version](https://img.shields.io/github/release/2amigos/yii2-ckeditor-widget.svg?style=flat-square)](https://github.com/2amigos/yii2-semantic-ui/releases)
 [![Software License](https://img.shields.io/badge/license-BSD-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/yii2-ckeditor-widget/master.svg?style=flat-square)](https://travis-ci.org/2amigos/yii2-semantic-ui)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/yii2-ckeditor-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-semantic-ui/code-structure)
