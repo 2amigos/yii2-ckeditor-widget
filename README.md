@@ -1,7 +1,12 @@
 CKEditor Widget for Yii2
 ========================
 
-[![Latest Stable Version](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/v/stable.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget) [![Total Downloads](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/downloads.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget) [![Latest Unstable Version](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/v/unstable.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget) [![License](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/license.svg)](https://packagist.org/packages/2amigos/yii2-ckeditor-widget)
+[![Latest Version](https://img.shields.io/github/release/yii2-ckeditor-widget.svg?style=flat-square)](https://github.com/2amigos/yii2-semantic-ui/releases)
+[![Software License](https://img.shields.io/badge/license-BSD-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/yii2-ckeditor-widget/master.svg?style=flat-square)](https://travis-ci.org/2amigos/yii2-semantic-ui)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/yii2-ckeditor-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-semantic-ui/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/yii2-ckeditor-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-semantic-ui)
+[![Total Downloads](https://img.shields.io/packagist/dt/yii2-ckeditor-widget.svg?style=flat-square)](https://packagist.org/packages/2amigos/yii2-semantic-ui)
 
 Renders a [CKEditor WYSIWYG text editor plugin](http://www.ckeditor.com) widget.
 
@@ -43,9 +48,9 @@ use dosamigos\ckeditor\CKEditor;
 
 
 <?= $form->field($model, 'text')->widget(CKEditor::className(), [
-		'options' => ['rows' => 6],
-		'preset' => 'basic'
-	]) ?>
+        'options' => ['rows' => 6],
+        'preset' => 'basic'
+    ]) ?>
 ```
 Using inline edition with basic preset:
 
@@ -54,13 +59,44 @@ Using inline edition with basic preset:
 use dosamigos\ckeditor\CKEditorInline;
 
 <?php CKEditorInline::begin(['preset' => 'basic']);?>
-	This text can be edited now :)
+    This text can be edited now :)
 <?php CKEditorInline::end();?>
+```
+
+Testing
+-------
+
+To test the extension, is better to clone this repository on your computer. After, go to the extensions folder and do
+the following (assuming you have `composer` installed on your computer: 
+
+``` bash 
+$ composer install --no-interaction --prefer-source --dev
+```
+Once all required libraries are installed then do: 
+
+```bash 
+$ phpunit
 ```
 
 Further Information
 -------------------
 Please, check the [CKEditor plugin site](http://www.ckeditor.com) documentation for further information about its configuration options.
+
+Contributing
+------------
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+Credits
+-------
+
+- [Antonio Ramirez](https://github.com/tonydspaniard)
+- [All Contributors](../../contributors)
+
+License
+-------
+
+The BSD License (BSD). Please see [License File](LICENSE.md) for more information.
 
 
 > [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)  

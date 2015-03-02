@@ -12,12 +12,26 @@
         }
     ],
     "require" : {
-	    "ckeditor/ckeditor": "4.4.*",
-            "yiisoft/yii2": "*"
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "ckeditor/ckeditor": "4.4.*"
     },
     "autoload": {
         "psr-4": {
-            "dosamigos\\ckeditor\\": ""
+            "dosamigos\\ckeditor\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "dosamigos\\ckeditor\\tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "asset-installer-paths": {
+            "bower-asset-library": "vendor/bower"
         }
     }
 }
