@@ -1,5 +1,5 @@
 /**
- * @copyright Copyright (c) 2014 2amigOS! Consulting Group LLC
+ * @copyright Copyright (c) 2012-2015 2amigOS! Consulting Group LLC
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
