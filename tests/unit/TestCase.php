@@ -3,6 +3,8 @@
 namespace tests;
 
 use yii\helpers\ArrayHelper;
+use yii\web\AssetManager;
+use yii\web\View;
 
 /**
  * This is the base class for all yii framework unit tests.
@@ -14,9 +16,22 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Mock application prior running tests.
      */
-    public function setUp()
+    protected function setUp()
     {
-        $this->mockApplication();
+        $this->mockWebApplication(
+            [
+                'components' => [
+                    'request' => [
+                        'class' => 'yii\web\Request',
+                        'url' => '/test',
+                        'enableCsrfValidation' => false,
+                    ],
+                    'response' => [
+                        'class' => 'yii\web\Response',
+                    ],
+                ],
+            ]
+        );
     }
 
     /**
@@ -55,6 +70,10 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
                     'scriptFile' => __DIR__ .'/index.php',
                     'scriptUrl' => '/index.php',
                 ],
+                'assetManager' => [
+                    'basePath' => '@tests/data/assets',
+                    'baseUrl' => '/',
+                ]
             ]
         ], $config));
     }
@@ -70,5 +89,33 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     protected function destroyApplication()
     {
         \Yii::$app = null;
+    }
+
+    /**
+     * Creates a view for testing purposes
+     *
+     * @return View
+     */
+    protected function getView()
+    {
+        $view = new View();
+        $view->setAssetManager(new AssetManager([
+            'basePath' => '@tests/data/assets',
+            'baseUrl' => '/',
+        ]));
+        return $view;
+    }
+
+    /**
+     * Asserting two strings equality ignoring line endings
+     *
+     * @param string $expected
+     * @param string $actual
+     */
+    public function assertEqualsWithoutLE($expected, $actual)
+    {
+        $expected = str_replace("\r\n", "\n", $expected);
+        $actual = str_replace("\r\n", "\n", $actual);
+        $this->assertEquals($expected, $actual);
     }
 }

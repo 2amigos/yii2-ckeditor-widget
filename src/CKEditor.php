@@ -46,6 +46,7 @@ class CKEditor extends InputWidget
 
     /**
      * Registers CKEditor plugin
+     * @codeCoverageIgnore
      */
     protected function registerPlugin()
     {

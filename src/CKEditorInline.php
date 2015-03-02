@@ -68,6 +68,7 @@ class CKEditorInline extends Widget
 
     /**
      * Registers CKEditor plugin
+     * @codeCoverageIgnore
      */
     protected function registerPlugin()
     {
