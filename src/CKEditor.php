@@ -70,4 +70,4 @@ class CKEditor extends InputWidget
 
         $view->registerJs(implode("\n", $js));
     }
-} 
+}
