@@ -45,9 +45,9 @@ trait CKEditorTrait
      */
     protected function initOptions()
     {
+        $options = [];
         switch ($this->preset) {
             case 'custom':
-                $options = [];
                 $preset = null;
                 break;
             case 'basic':
