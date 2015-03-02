@@ -94,4 +94,4 @@ class CKEditorInline extends Widget
 
         $view->registerJs(implode("\n", $js));
     }
-} 
+}
