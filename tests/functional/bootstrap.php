@@ -1,14 +1,5 @@
 <?php
- /**
- * 
- * bootstrap.php
- *
- * Date: 30/01/15
- * Time: 14:04
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- */
+
 error_reporting(-1);
 define('YII_ENABLE_ERROR_HANDLER', false);
 define('YII_DEBUG', true);

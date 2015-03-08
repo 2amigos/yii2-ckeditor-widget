@@ -1,14 +1,4 @@
 <?php
-/**
- *
- * CKEditorTraitTest.php
- *
- * Date: 02/03/15
- * Time: 13:15
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- */
 
 namespace tests;
 
