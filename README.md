@@ -69,7 +69,7 @@ Testing
 To test the extension, is better to clone this repository on your computer. After, go to the extensions folder and do
 the following (assuming you have `composer` installed on your computer: 
 
-``` bash 
+```bash 
 $ composer install --no-interaction --prefer-source --dev
 ```
 Once all required libraries are installed then do: 
