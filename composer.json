@@ -1,8 +1,17 @@
 {
     "name": "2amigos/yii2-ckeditor-widget",
     "description": "CKEditor widget for Yii2.",
-    "keywords": ["yii", "extension", "widget", "ckeditor"],
     "type": "yii2-extension",
+    "keywords": [
+        "2amigos",
+        "yii",
+        "yii2",
+        "yii 2",
+        "extension",
+        "widget",
+        "ckeditor"
+    ],
+    "homepage": "http://yiiwheels.com/extension/ckeditor-widget",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -12,8 +21,11 @@
             "role": "Developer"
         }
     ],
-    "require" : {
-        "php": ">=5.4.0",
+    "support": {
+        "issues": "https://github.com/2amigos/yii2-ckeditor-widget/issues",
+        "source": "https://github.com/2amigos/yii2-ckeditor-widget"
+    },
+    "require": {
         "yiisoft/yii2": "*",
         "ckeditor/ckeditor": "dev-full/stable"
     },
@@ -24,11 +36,6 @@
     "autoload": {
         "psr-4": {
             "dosamigos\\ckeditor\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "dosamigos\\ckeditor\\tests\\": "tests"
         }
     },
     "extra": {
