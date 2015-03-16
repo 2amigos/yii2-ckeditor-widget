@@ -75,7 +75,7 @@ $ composer install --no-interaction --prefer-source --dev
 Once all required libraries are installed then do: 
 
 ```bash 
-$ phpunit
+$ vendor/bin/phpunit
 ```
 
 Further Information
