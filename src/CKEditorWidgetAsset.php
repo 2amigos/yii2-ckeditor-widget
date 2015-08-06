@@ -28,6 +28,11 @@ class CKEditorWidgetAsset extends AssetBundle
     public function init()
     {
         $this->sourcePath = __DIR__ . '/assets';
+        $this->publishOptions = [
+			'except' => [
+				'ckeditor/',
+			]
+		];
         parent::init();
     }
 }
