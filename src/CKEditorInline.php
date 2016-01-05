@@ -7,6 +7,7 @@
 namespace dosamigos\ckeditor;
 
 use yii\base\Widget;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 
@@ -68,7 +69,7 @@ class CKEditorInline extends Widget
      * Registers CKEditor plugin
      * @codeCoverageIgnore
      */
-    protected function registerPlugin()
+    protected function registerPlugin(array $jsPre = [], array $jsPost = [])
     {
         $js = [];
 
@@ -91,6 +92,6 @@ class CKEditorInline extends Widget
             $js[] = "dosamigos.ckEditorWidget.registerCsrfImageUploadHandler();";
         }
 
-        $view->registerJs(implode("\n", $js));
+        $view->registerJs(implode("\n", ArrayHelper::merge($jsPre, $js, $jsPost)));
     }
 }
