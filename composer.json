@@ -26,7 +26,8 @@
         "source": "https://github.com/2amigos/yii2-ckeditor-widget"
     },
     "require": {
-        "yiisoft/yii2": "~2.0.0"
+        "yiisoft/yii2": "~2.0.0",
+        "ckeditor/ckeditor": "4.*"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*"

@@ -29,7 +29,7 @@ class CKEditorAsset extends AssetBundle
 
     public function init()
     {
-        $this->sourcePath = __DIR__ . '/assets/ckeditor';
+        $this->sourcePath = '@vendor/ckeditor/ckeditor';
         parent::init();
     }
 }
