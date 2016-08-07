@@ -18,7 +18,7 @@ dosamigos.ckEditorWidget = (function ($) {
             });
         },
         registerCsrfImageUploadHandler: function () {
-            yii & $(document).off('click', '.cke_dialog_tabs a[title="Upload"]').on('click', '.cke_dialog_tabs a[title="Upload"]', function () {
+            yii & $(document).off('click', '.cke_dialog_tabs a[id^="cke_Upload_"]').on('click', '.cke_dialog_tabs a[id^="cke_Upload_"]', function () {
                 var $forms = $('.cke_dialog_ui_input_file iframe').contents().find('form');
                 var csrfName = yii.getCsrfParam();
                 $forms.each(function () {
