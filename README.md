@@ -22,7 +22,7 @@ composer require 2amigos/yii2-ckeditor-widget
 or add
 
 ```json
-"2amigos/yii2-ckeditor-widget" : "*"
+"2amigos/yii2-ckeditor-widget" : "~1.0"
 ```
 
 to the require section of your application's `composer.json` file.
