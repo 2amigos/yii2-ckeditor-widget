@@ -80,7 +80,7 @@ Assuming you have downloaded the plugin and added to the root directory of your 
 </pre>
 
 We can now add it to our CKEditor widget. For this example I am using `CKEditorInline` widget. One thing you notice on 
-this example is that we use the preset `custom`; this is highly important as we want to add a customized toolbar to our 
+this example is that we do not use the preset attribute; this is highly important as we want to add a customized toolbar to our 
 widget. No more talking, here is the code:
  
 ```php 
