@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class CKEditorWidgetAsset extends AssetBundle
 {
-    public $sourcePath = __DIR__ . '/assets';
+    public $sourcePath = 'assets';
 
     public $depends = [
         'dosamigos\ckeditor\CKEditorAsset'

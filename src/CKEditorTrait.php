@@ -52,10 +52,10 @@ trait CKEditorTrait
             case 'basic':
             case 'full':
             case 'standard':
-                $preset = __DIR__ . '/presets/' . $this->preset . '.php';
+                $preset = 'presets/' . $this->preset . '.php';
                 break;
             default:
-                $preset = __DIR__ . '/presets/standard.php';
+                $preset = 'presets/standard.php';
         }
         if ($preset !== null) {
             $options = require($preset);
