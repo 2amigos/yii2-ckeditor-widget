@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2013-2015 2amigOS! Consulting Group LLC
+ * @copyright Copyright (c) 2013-2016 2amigOS! Consulting Group LLC
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
@@ -52,10 +52,10 @@ trait CKEditorTrait
             case 'basic':
             case 'full':
             case 'standard':
-                $preset = __DIR__ . '/presets/' . $this->preset . '.php';
+                $preset = 'presets/' . $this->preset . '.php';
                 break;
             default:
-                $preset = __DIR__ . '/presets/standard.php';
+                $preset = 'presets/standard.php';
         }
         if ($preset !== null) {
             $options = require($preset);

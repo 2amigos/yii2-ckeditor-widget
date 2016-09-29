@@ -17,12 +17,12 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require 2amigos/yii2-ckeditor-widget:~1.0
+composer require 2amigos/yii2-ckeditor-widget
 ```
 or add
 
 ```json
-"2amigos/yii2-ckeditor-widget" : "~1.0"
+"2amigos/yii2-ckeditor-widget" : "2.0"
 ```
 
 to the require section of your application's `composer.json` file.
@@ -62,6 +62,64 @@ use dosamigos\ckeditor\CKEditorInline;
     This text can be edited now :)
 <?php CKEditorInline::end();?>
 ```
+
+How to add custom plugins
+-------------------------
+This is the way to add custom plugins to the editor. Since version 2.0 we are working with the packagist version of the 
+CKEditor library, therefore we are required to use its configuration API in order to add external plugins. 
+
+Lets add the popular [Code Editor Plugin](http://ckeditor.com/addon/pbckcode) for example. This plugin would allow us to 
+add a button to our editor's toolbar so we can add code to the content we are editing. 
+
+Assuming you have downloaded the plugin and added to the root directory of your Yii2 site. I have it this way: 
+
+<pre>
++ frontend 
++ -- web 
+    + -- pbckcode 
+</pre>
+
+We can now add it to our CKEditor widget. For this example I am using `CKEditorInline` widget. One thing you notice on 
+this example is that we do not use the preset attribute; this is highly important as we want to add a customized toolbar to our 
+widget. No more talking, here is the code:
+ 
+```php 
+<?php
+ 
+use dosamigos\ckeditor\CKEditorInline;
+
+// First we need to tell CKEDITOR variable where is our external plufin 
+$this->registerJs("CKEDITOR.plugins.addExternal('pbckcode', '/pbckcode/plugin.js', '');");
+
+// ... 
+// Using the plugin
+<?php CKEditorInline::begin(['preset' => 'custom', 'clientOptions' => [
+    'extraPlugins' => 'pbckcode',
+    'toolbarGroups' => [
+        ['name' => 'undo'],
+        ['name' => 'basicstyles', 'groups' => ['basicstyles', 'cleanup']],
+        ['name' => 'colors'],
+        ['name' => 'links', 'groups' => ['links', 'insert']],
+        ['name' => 'others', 'groups' => ['others', 'about']],
+        
+        ['name' => 'pbckcode'] // <--- OUR NEW PLUGIN YAY!
+    ]
+]]) ?>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua. 
+</p>
+<?php CKEditorInline::end() ?>
+```
+
+About extra assets 
+------------------
+You maybe wonder why there is file `dosamigos-ckeditor.widget.js`. The reason is that due to the way Yii2 works with 
+forms and Cross-Site Request Forgery (csrf). CKEditor does not trigger the on change event nor collects the CSRF token 
+when using file uploads. 
+
+The asset tackles both issues. 
 
 Testing
 -------

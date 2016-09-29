@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2013-15 2amigOS! Consulting Group LLC
+ * @copyright Copyright (c) 2013-16 2amigOS! Consulting Group LLC
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
@@ -18,6 +18,7 @@ use yii\web\AssetBundle;
  */
 class CKEditorAsset extends AssetBundle
 {
+    public $sourcePath = '@vendor/ckeditor/ckeditor/';
     public $js = [
         'ckeditor.js',
         'adapters/jquery.js'
@@ -26,10 +27,4 @@ class CKEditorAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\web\JqueryAsset'
     ];
-
-    public function init()
-    {
-        $this->sourcePath = __DIR__ . '/assets/ckeditor';
-        parent::init();
-    }
 }
