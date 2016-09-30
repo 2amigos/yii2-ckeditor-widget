@@ -17,21 +17,14 @@ dosamigos.ckEditorWidget = (function ($) {
                 return false;
             });
         },
-        registerCsrfImageUploadHandler: function () {
-            yii & $(document).off('click', '.cke_dialog_tabs a[id^="cke_Upload_"]').on('click', '.cke_dialog_tabs a[id^="cke_Upload_"]', function () {
-                var $forms = $('.cke_dialog_ui_input_file iframe').contents().find('form');
-                var csrfName = yii.getCsrfParam();
-                $forms.each(function () {
-                    if (!$(this).find('input[name=' + csrfName + ']').length) {
-                        var csrfTokenInput = $('<input/>').attr({
-                            'type': 'hidden',
-                            'name': csrfName
-                        }).val(yii.getCsrfToken());
-                        $(this).append(csrfTokenInput);
-                    }
-                });
-            });
-        }
+		registerCsrfUploadHandler: function (id) {
+			CKEDITOR && CKEDITOR.instances[id] && CKEDITOR.instances[id].on('fileUploadRequest', function (evt) {
+				var csrfName = yii.getCsrfParam();
+				var csrfToken = $($(CKEDITOR.instances[id].element.$.form).find('input[name=' + csrfName + ']')[0]).val();
+				var xhr = evt.data.fileLoader.xhr;
+				xhr.setRequestHeader('X-CSRF-Token', csrfToken);
+			});
+		},
     };
     return pub;
 })(jQuery);
