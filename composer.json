@@ -13,6 +13,8 @@
     ],
     "homepage": "http://yiiwheels.com/extension/ckeditor-widget",
     "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "2amigOS! Consulting Group",
