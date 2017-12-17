@@ -88,7 +88,7 @@ widget. No more talking, here is the code:
  
 use dosamigos\ckeditor\CKEditorInline;
 
-// First we need to tell CKEDITOR variable where is our external plugin 
+// First we need to tell CKEDITOR variable where is our external plugin
 $this->registerJs("CKEDITOR.plugins.addExternal('pbckcode', '/pbckcode/plugin.js', '');");
 
 // ... 
@@ -111,6 +111,61 @@ $this->registerJs("CKEDITOR.plugins.addExternal('pbckcode', '/pbckcode/plugin.js
     dolore magna aliqua. 
 </p>
 <?php CKEditorInline::end() ?>
+```
+
+Browse & Upload
+---------------
+To browse and upload files, the [KCFinder](https://kcfinder.sunhater.com/) plugin is used, which is disabled by default.
+
+To enable it, just use `'kcfinder'=>true`.
+
+See this simple example code:
+
+```php
+<?php
+use dosamigos\ckeditor\CKEditor;
+
+echo $form->field($model, 'text')->widget(CKEditor::className(), [
+    'kcfinder' => true,
+]);
+```
+
+The upload folder name is `upload` in the root web directory by default.
+
+You can set options for the `kcfOptions` parameter, and can find all KCFinder's options in this link: [https://kcfinder.sunhater.com/install](https://kcfinder.sunhater.com/install)
+
+For change upload directory or change some options you can see this advanced example code:
+
+```php
+<?php
+use dosamigos\ckeditor\CKEditor;
+
+echo $form->field($model, 'text')->widget(CKEditor::className(), [
+    'kcfinder' => true,
+    'kcfOptions' => [
+        'uploadURL' => '@web/upload',
+        'uploadDir' => '@webroot/upload',
+        'access' => [  // @link http://kcfinder.sunhater.com/install#_access
+            'files' => [
+                'upload' => true,
+                'delete' => true,
+                'copy' => true,
+                'move' => true,
+                'rename' => true,
+            ],
+            'dirs' => [
+                'create' => true,
+                'delete' => true,
+                'rename' => true,
+            ],
+        ],
+        'types' => [  // @link http://kcfinder.sunhater.com/install#_types
+            'files' => [
+                'type' => '',
+            ],
+        ],
+    ],
+]);
 ```
 
 About extra assets 
