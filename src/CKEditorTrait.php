@@ -6,6 +6,7 @@
  */
 namespace dosamigos\ckeditor;
 
+use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -32,6 +33,57 @@ trait CKEditorTrait
     public $preset = 'standard';
 
     /**
+     * Enable or disable kcfinder
+     * @link https://kcfinder.sunhater.com
+     * @var boolean
+     */
+    public $kcfinder = false;
+
+    /**
+     * KCFinder dynamic settings (using session)
+     * @link http://kcfinder.sunhater.com/install#dynamic
+     * @var array
+     */
+    public $kcfOptions = [];
+
+    /**
+     * KCFinder default dynamic settings
+     * @link http://kcfinder.sunhater.com/install#dynamic
+     * @var array
+     */
+    public static $kcfDefaultOptions = [
+        'disabled' => false,
+        'uploadURL' => '@web/upload',
+        'uploadDir' => '@webroot/upload',
+        'denyZipDownload' => true,
+        'denyUpdateCheck' => true,
+        'denyExtensionRename' => true,
+        'theme' => 'default',
+        'access' => [ // @link http://kcfinder.sunhater.com/install#_access
+            'files' => [
+                'upload' => true,
+                'delete' => true,
+                'copy' => true,
+                'move' => true,
+                'rename' => true,
+            ],
+            'dirs' => [
+                'create' => true,
+                'delete' => true,
+                'rename' => true,
+            ],
+        ],
+        'types' => [  // @link http://kcfinder.sunhater.com/install#_types
+            'files' => [
+                'type' => '',
+            ],
+        ],
+        'thumbsDir' => '.thumbs',
+        'thumbWidth' => 100,
+        'thumbHeight' => 100,
+    ];
+
+    /**
      * @var array the options for the CKEditor 4 JS plugin.
      * Please refer to the CKEditor 4 plugin Web page for possible options.
      * @see http://docs.ckeditor.com/#!/guide/dev_installation
@@ -44,6 +96,10 @@ trait CKEditorTrait
      */
     protected function initOptions()
     {
+        if ($this->kcfinder) {
+            $this->registerKCFinder();
+        }
+
         $options = [];
         switch ($this->preset) {
             case 'custom':
@@ -61,5 +117,30 @@ trait CKEditorTrait
             $options = require($preset);
         }
         $this->clientOptions = ArrayHelper::merge($options, $this->clientOptions);
+    }
+
+    /**
+     * Registers KCFinder (@link https://kcfinder.sunhater.com)
+     * @author Nabi KaramAliZadeh <NabiKAZ@gmail.com
+     * @link http://www.nabi.ir
+     */
+    protected function registerKCFinder()
+    {
+        $this->kcfOptions = array_merge(self::$kcfDefaultOptions, $this->kcfOptions);
+
+        $this->kcfOptions['uploadURL'] = Yii::getAlias($this->kcfOptions['uploadURL']);
+        $this->kcfOptions['uploadDir'] = Yii::getAlias($this->kcfOptions['uploadDir']);
+
+        Yii::$app->session['KCFINDER'] = $this->kcfOptions;
+
+        $register = KCFinderAsset::register($this->view);
+        $kcfinderUrl = $register->baseUrl;
+
+        $browseOptions = [
+            'filebrowserBrowseUrl' => $kcfinderUrl . '/browse.php?opener=ckeditor&type=files',
+            'filebrowserUploadUrl' => $kcfinderUrl . '/upload.php?opener=ckeditor&type=files',
+        ];
+
+        $this->clientOptions = ArrayHelper::merge($browseOptions, $this->clientOptions);
     }
 }
