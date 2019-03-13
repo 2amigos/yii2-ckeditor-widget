@@ -1,5 +1,5 @@
 {
-    "name": "2amigos/yii2-ckeditor-widget",
+    "name": "pensionguy99/yii2-ckeditor-widget",
     "description": "CKEditor widget for Yii2.",
     "type": "yii2-extension",
     "keywords": [
@@ -29,7 +29,7 @@
     },
     "require": {
         "yiisoft/yii2": "^2.0",
-        "ckeditor/ckeditor": "dev-full/4.7.x as 4.7.1",
+        "ckeditor/ckeditor": "^4.11.3",
         "sunhater/kcfinder": "*"
     },
     "require-dev": {
